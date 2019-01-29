@@ -8,22 +8,38 @@ import * as serviceWorker from './serviceWorker';
 
 
 const myElem = <p>하이하이</p>;
-const MyCom =()=> <p>허이허이</p>;
+const MyCom = () => <p>허이허이</p>;
 
-class MyKlassCom extends  React.Component {
-    render() {
-      return (
+class MyKlassCom extends React.Component {
+  render() {
+    return (
       <div>
         <p>qweqwe</p>
-        <MyCom />
+        <MyCom/>
         {MyCom()}
       </div>);
-    }
+  }
 }
 
-console.log(<myKlassCom />);
-  console.log(myElem,MyCom(),<myCom />);
-ReactDOM.render(<MyKlassCom />, document.getElementById('root'));
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world</h1>
+      <h2>Time : {new Date().toLocaleTimeString()}</h2>
+
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+const nTimer = setInterval(tick, 1000);
+
+const nTimer1 = setTimeout(function(){
+  clearInterval(nTimer);
+}, 5000);
+
+
+// ReactDOM.render(<MyKlassCom />, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change
