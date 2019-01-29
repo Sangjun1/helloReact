@@ -112,5 +112,22 @@
     "presets": [
       "react-app"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+      "linters": {
+        "src/**/*.{js,jsx,tsx ,css,scss,md}": [
+          "prettier --single-quote --write",
+          "git add"
+        ]
+      },
+      "ignore": [
+        "node_modeules/**",
+        ".git/**"
+      ]
+    }
   }
 }
