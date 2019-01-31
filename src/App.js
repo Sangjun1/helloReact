@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import ReactStudyGoal from './study/ReactStudyGoal';
-import FuncionReactStudyGoal from './study/FuncionReactStudyGoal';
 import TodoList from './study/TodoList';
 import Timer from './study/Timer';
 import Toggle from './study/Toggle';
 import Header from './study/Header';
 import MarkEdior from './study/MarkEdior';
-import ControlledForm from './study/ControlledForm';
+import Counter from './study/Counter';
+import AppRouter from './study/AppRouter';
 
 class App extends Component {
   state = {
@@ -59,7 +57,10 @@ class App extends Component {
         {/*<header className="App-header">*/}
           {/*<ControlledForm />*/}
         {/*</header>*/}
-        <MarkEdior />
+        {/*<MarkEdior />*/}
+
+        <AppRouter />
+        <Counter />
         <Header />
         <Toggle/>
         {!this.state.isUnmount && <TodoList title={'강의목표'} items={this.state.data}/>}
