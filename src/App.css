@@ -7,12 +7,17 @@
   height: 40vmin;
 }
 
+.rotate {
+  animation: App-logo-spin step-end;
+  height: 40vmin;
+}
+
 .App-header {
   background-color: mediumvioletred;
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;[]
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
