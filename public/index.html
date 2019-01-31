@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
-
-    <script>
-      function clickHandler(e){
-        console.log(e);
-        console.log(this);
-      }
-
-      // document.getElementById("btnEvent").addEventListener('click',clickHandler);
-
-
-
-    </script>
-
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  <div>
-    <h2>React 관련없는 영역</h2>
-    <div onclick="clickHandler()"> 클릭 이벤트</div>
-    <div id="btnEvent"> 변경 클릭 이벤트</div>
-  </div>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="theme-color" content="#000000"/>
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
+  <title>React App</title>
 
   <script>
-
-    var x = 1;
-
-
-    var obj ={
-      x:1,
-      y:2,
-      m1: function(n) {
-        console.log(n, this);
-      }
+    function clickHandler(e) {
+      console.log(e);
+      console.log(this);
     }
 
-    obj.m1(23);
+    // document.getElementById("btnEvent").addEventListener('click',clickHandler);
 
-
-    class X {
-
-      state = {
-        x:1,
-        y:2
-      }
-      render(){
-        console.log(this);
-
-        this.state.x = 2;
-      }
-
-    }
-    var x = new X();
-    x.render();
 
   </script>
+  <style>
+    .box {
+      border: 1px #7a2226;
+      width: 100px;
+      height: 100px;
+    }
 
-  </body>
+    .red {
+      background-color: red;
+      position: relative;
+      width: 90px;
+      height: 90px;
+      left: 150px;
+      top: 150px;
+
+    }
+
+    .blue {
+      background-color: blue;
+      position: fixed;
+      width: 50px;
+      height: 50px;
+
+    }
+
+    .green {
+      background-color: green;
+      width: 25px;
+      height: 25px;
+      position: relative;
+      left: 10px;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+
+  </style>
+</head>
+
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+
+<div id="box1" class="box red">
+  <div id="box2" class="box blue">
+    <div id="box3" class="box green">
+    </div>
+  </div>
+</div>
+<div id="box4" class="box yellow">
+</div>
+
+</body>
 </html>

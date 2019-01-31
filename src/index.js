@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+ ReactDOM.render(<App />, document.getElementById('root'));
 
 
 const myElem = <p>하이하이</p>;
@@ -29,17 +29,69 @@ function tick() {
 
     </div>
   );
-  ReactDOM.render(element, document.getElementById('root'));
+  // ReactDOM.render(element, document.getElementById('root'));
 }
 
 const nTimer = setInterval(tick, 1000);
 
-const nTimer1 = setTimeout(function(){
+const nTimer1 = setTimeout(function() {
   clearInterval(nTimer);
 }, 5000);
 
 
-// ReactDOM.render(<MyKlassCom />, document.getElementById('root'));
+const FunctionalComponent = () => (
+  <div>
+    <h2>함수형 컴포넌트</h2>
+    <p>Time : {new Date().toLocaleTimeString()}</p>
+  </div>
+);
+
+class StatelessComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>클래스형 컴포넌트, 상태가 없는 컴포넌트</h2>
+        <p>Time : {new Date().toLocaleTimeString()}</p>
+      </div>
+    );
+  }
+}
+
+
+class StatefulComponent extends React.Component {
+  //constructor 생성자
+  constructor(props) {
+    super(props);
+    this.state = {
+      now: new Date().toLocaleTimeString(),
+    };
+    setTimeout(() => {
+      this.setState({
+        now: new Date().toLocaleTimeString(),
+      });
+    }, 1000);
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>클래스형 컴포넌트, 상태가 있는 컴포넌트</h2>
+        <p>Time : {this.state.now}</p>
+      </div>
+    );
+  }
+}
+
+
+
+// ReactDOM.render(
+//   <div>
+//     <FunctionalComponent/>
+//     <StatelessComponent/>
+//     <StatefulComponent/>
+//   </div>
+//   , document.getElementById('root'),
+// );
 
 
 // If you want your app to work offline and load faster, you can change
