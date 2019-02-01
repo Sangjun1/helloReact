@@ -7,6 +7,7 @@ import Header from './study/Header';
 import MarkEdior from './study/MarkEdior';
 import Counter from './study/Counter';
 import AppRouter from './study/AppRouter';
+import AppRouter2 from './study/AppRouter2';
 
 class App extends Component {
   state = {
@@ -59,15 +60,16 @@ class App extends Component {
         {/*</header>*/}
         {/*<MarkEdior />*/}
 
+        {/*<AppRouter2 />*/}
         <AppRouter />
-        <Counter />
-        <Header />
-        <Toggle/>
-        {!this.state.isUnmount && <TodoList title={'강의목표'} items={this.state.data}/>}
+        {/*<Counter />*/}
+        {/*<Header />*/}
+        {/*<Toggle/>*/}
+       {/* {!this.state.isUnmount && <TodoList title={'강의목표'} />}*/}
 
-        {!this.state.isTimerUnmount && <Timer expireDate={'2019-01-30T18:00:00+09:00'}
+      {/*  {!this.state.isTimerUnmount && <Timer expireDate={'2019-01-30T18:00:00+09:00'}
                                               onExpired={this.handleExpireTimer}
-        />}
+        />}*/}
       </div>
     );
   }

@@ -1,14 +1,70 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {Menu, Icon, Button} from 'antd';
-
-const Index = () => <h2>Home</h2>;
-const About = () => <h2>About</h2>;
-const Users = () => <h2>Users</h2>;
+import TodoList from './TodoList';
+import Styled from 'styled-components';
 
 const SubMenu = Menu.SubMenu;
 
+const Page = Styled.div`
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  min-height : 80vh;
+`;
+
+class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('[Index constructor]');
+  }
+
+  render() {
+    return (<h2>Home</h2>);
+  }
+
+  componentDidMount() {
+    console.log('[Index componentDidMount!]');
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[Index componentDidUpdate!]');
+  }
+
+  componentWillUnmount() {
+    console.log('[Index componentWillUnmount@@]');
+  }
+
+}
+
+class About extends React.Component {
+
+  constructor(props) {
+    super(props);
+    console.log('[About constructor]', this.props);
+  }
+
+  render() {
+    return (<h2>About</h2>);
+  }
+
+  componentDidMount() {
+    console.log('[About componentDidMount!]');
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[About componentDidUpdate!]');
+  }
+
+  componentWillUnmount() {
+    console.log('[About componentWillUnmount@@]');
+  }
+}
+
+
 class AppRouter extends React.Component {
+
+  TodoList = () => <TodoList title={'강의목표'}/>;
 
   state = {
     collapsed: false,
@@ -23,14 +79,14 @@ class AppRouter extends React.Component {
   render() {
     return (
       <Router>
-        <div style={{width: 256}}>
+        <div>
           <Button type="primary" onClick={this.toggleCollapsed} style={{marginBottom: 16}}>
             <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}/>
           </Button>
           <Menu
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
-            mode="inline"
+            mode="horizontal"
             theme="dark"
             inlineCollapsed={this.state.collapsed}
           >
@@ -46,31 +102,22 @@ class AppRouter extends React.Component {
                 <span>About</span></Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Link to='/users'>
+              <Link to='/todoList'>
                 <Icon type="inbox"/>
-                <span>Users</span>
+                <span>TodoList</span>
               </Link>
             </Menu.Item>
-            <SubMenu key="sub1" title={<span><Icon type="mail"/><span>Navigation One</span></span>}>
-              <Menu.Item key="5">Option 5</Menu.Item>
-              <Menu.Item key="6">Option 6</Menu.Item>
-              <Menu.Item key="7">Option 7</Menu.Item>
-              <Menu.Item key="8">Option 8</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" title={<span><Icon type="appstore"/><span>Navigation Two</span></span>}>
-              <Menu.Item key="9">Option 9</Menu.Item>
-              <Menu.Item key="10">Option 10</Menu.Item>
-              <SubMenu key="sub3" title="Submenu">
-                <Menu.Item key="11">Option 11</Menu.Item>
-                <Menu.Item key="12">Option 12</Menu.Item>
-              </SubMenu>
-            </SubMenu>
           </Menu>
+
+          <div>
+            <Page>
+              <Route path="/" exact component={Index}/>
+              <Route path="/about" exact component={About}/>
+            </Page>
+            <Route path="/todoList" component={this.TodoList}/>
+          </div>
         </div>
 
-        <Route path="/" component={Index}/>
-        <Route path="/about" component={About}/>
-        <Route path="/users" component={Users}/>
       </Router>
     );
   }
